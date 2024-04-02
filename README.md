@@ -1,4 +1,4 @@
-<h1 align='center'>Jogo da Vida</h1>
+<h1 align='center'>Mínimo e Máximo</h1>
 
 <div align = "center" >
 
@@ -11,26 +11,26 @@
 
 ## Introdução
 <p align="justify">
-Este programa faz referência a disciplina Algorítmo e Estrutura de Dados I, desenvolvido na linguagem C++ na IDE Visual Studio Code, usando uma makefile disponibilizada pelo docente. Este exercício 
+Este programa faz referência a disciplina Algorítmo e Estrutura de Dados I, desenvolvido na linguagem C++ na IDE Visual Studio Code, usando uma makefile disponibilizada pelo docente. O MinMax, nome genérico para explicar a funcionalidade do programa, são algorítmos de leitura de um Vetor para encontrar o valor Mínimo (Min) e o valor Máximo (Max). Esse programa serve como uma base de estudo para o tempo de execução de diferentes implementações que desempenham a mesma função, para que enfim esses tempos sejam analisados.
 </p>
 
 ## Objetivos
 
 <p align='justify'>
-O objetivo deste trabalho é usar a matriz de entrada fornecida pelo usuário em um arquivo de texto para chegar rapidamente à formatação final da matriz, após um determinado número de gerações. Essas gerações representam o número de interações que o programa analisará a matriz e mudará seu conteúdo conforme as regras estipuladas pelo problema.
+O objetivo deste trabalho é analisar os tempos de execução dos três diferentes algorítmos fornecidos para encontrar o Mínimo e Máximo dentro de um vetor. Com isso, os resultados serão relacionados aos conceitos de análise assintótica, com o intúito último de consolidar os conceitos discutidos dentro de sala, bem como aprofundar o conhecimento geral do conteúdo.
 </p>
 
 ## Arquivos
 
 ## src
 - ``` main.cpp ```: Arquivo principal;
-- ``` Matriz.hpp ```: Assinatura das funções relacionadas à manipulação dos vetores;
-- ``` Matriz.cpp ```: Implementação das funções relacionadas à manipulação dos vetores.
+- ``` MinMax.hpp ```: Assinatura das funções relacionadas à manipulação dos vetores;
+- ``` MinMax.cpp ```: Implementação das funções relacionadas à manipulação dos vetores.
 
 ## Funções
-- ```DescobrirTamanho()```: Essa função abre o arquivo input.mps e Lê sua primeira linha, que corresponde ao tamanho, e retorna o valor encontrado.
-- ```CriaMatriz(int linhascolunas)```: Essa função aloca dinâmicamente o espaço necessário para armazenar a matriz que será lida usando o valor que ela recebe (linhascolunas). Além disso, essa função também é a responsável por cercar o "Mapa" do Jogo da Vida, impedindo que o acesso a posições indevidas dentro do 'for' duplo aconteça.
-- ```PreencheMatriz(int**JogodaVida, int Tamanho)```: Essa função recebe a matriz já alocada, nomeada como JogodaVida, além do Tamanho da matriz. Com essas informações a função abre novamente o arquivo input.mps e lê os dados que estão armazenados nela, então esses dados são alocados em cada posição (ij) correspondente na matriz.
+- ```MinMax01(const std::vector<int>& meuVetor)```: Essa função implementa o algorítmo para o MinMax 1, executa o algorítmo e calcula o tempo de execução, que é retornado pela função.
+- ```MinMax02(const std::vector<int>& meuVetor)```: Essa função implementa o algorítmo para o MinMax 2, executa o algorítmo e calcula o tempo de execução, que é retornado pela função.
+- ```MinMax03(const std::vector<int>& meuVetor)```: Essa função implementa o algorítmo para o MinMax 3, executa o algorítmo e calcula o tempo de execução, que é retornado pela função.
 - ```ProximaGeracao(int** JogodaVida, int Tamanho, int GeracaoAtual)```: Essa função recebe a matriz já preenchida, seu tamanho e a geração atual. Com esses dados a função cria uma matriz auxiliar, e analisa o desenvolvimento do jogo naquela geração, após isso a matriz auxiliar passará a ser a original, e a matriz original será colocada no arquivo geracoes.mps, então sera destruída para evitar vazamento de memória. Por fim a nova matriz original é retornada à main.
 - ```DestrutorMatriz(int** JogodaVida, int Tamanho, int ExibirMensagem)```: Essa função destrói a matriz que recebe, então dependendo do valor de "ExibirMensagem", uma mensagem sinalizando a destruição da matriz será mostrada no Terminal.
 - ```Limpar_geracoesmps()```: Essa função limpa o arquivo geracoes.mps para prepará-lo para ser escrito com as gerações da próxima matriz disponível no input.mps, independente se houve mudança ou não.
