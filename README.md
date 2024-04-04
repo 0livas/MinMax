@@ -31,14 +31,23 @@ O objetivo deste trabalho é analisar os tempos de execução dos três diferent
 - ```MinMax01(const std::vector<int>& meuVetor)```: Essa função implementa o algorítmo para o MinMax 1, executa o algorítmo e calcula o tempo de execução, que é retornado pela função.
 - ```MinMax02(const std::vector<int>& meuVetor)```: Essa função implementa o algorítmo para o MinMax 2, executa o algorítmo e calcula o tempo de execução, que é retornado pela função.
 - ```MinMax03(const std::vector<int>& meuVetor)```: Essa função implementa o algorítmo para o MinMax 3, executa o algorítmo e calcula o tempo de execução, que é retornado pela função.
-- ```ProximaGeracao(int** JogodaVida, int Tamanho, int GeracaoAtual)```: Essa função recebe a matriz já preenchida, seu tamanho e a geração atual. Com esses dados a função cria uma matriz auxiliar, e analisa o desenvolvimento do jogo naquela geração, após isso a matriz auxiliar passará a ser a original, e a matriz original será colocada no arquivo geracoes.mps, então sera destruída para evitar vazamento de memória. Por fim a nova matriz original é retornada à main.
-- ```DestrutorMatriz(int** JogodaVida, int Tamanho, int ExibirMensagem)```: Essa função destrói a matriz que recebe, então dependendo do valor de "ExibirMensagem", uma mensagem sinalizando a destruição da matriz será mostrada no Terminal.
-- ```Limpar_geracoesmps()```: Essa função limpa o arquivo geracoes.mps para prepará-lo para ser escrito com as gerações da próxima matriz disponível no input.mps, independente se houve mudança ou não.
-- ```Executar()```: Essa função apenas executa o que estaria originalmente na Main.cpp. Nela está explicito a ordem de chamadas e funcionamento do programa.
+- ```Ordenação(std::vector<int>& MeuVetor, int definicao)```: Como o nome diz, a função Ordenação ordena, de acordo com o valor da definição (que é puramente explicitado pelo programador), se o vetor será organizado de forma crescente ou decrescente, e então retorna o vetor ordenado..
+- ```Preencher_Vetor()```: Essa função usa a função rand() da biblioteca padrão de C para gerar números aleatórios entre 0 e 1000, e preenche cada posição do vetor com um desses valores, então retorna o vetor desordenado e preenchido.
+- ```ExecutarMinMax01(std::vector<int>& MeuVetor, int NumerodeExecuções)```: Essa função executa o algorítmo MinMax01 para o vetor recebido. Essa execução acontece para o vetor desordenado, ordenado crescente e ordenado decrescente. A variável número de execuções define quantas vezes o algororítmo será executado. Para cada variação, a função printa o valor de média encontrado no terminal.
+- ```ExecutarMinMax02(std::vector<int>& MeuVetor, int NumerodeExecuções)```: Essa função executa o algorítmo MinMax02 para o vetor recebido. Essa execução acontece para o vetor desordenado, ordenado crescente e ordenado decrescente. A variável número de execuções define quantas vezes o algororítmo será executado. Para cada variação, a função printa o valor de média encontrado no terminal.
+- ```ExecutarMinMax03(std::vector<int>& MeuVetor, int NumerodeExecuções)```: Essa função executa o algorítmo MinMax03 para o vetor recebido. Essa execução acontece para o vetor desordenado, ordenado crescente e ordenado decrescente. A variável número de execuções define quantas vezes o algororítmo será executado. Para cada variação, a função printa o valor de média encontrado no terminal.
+-  ```ExecutarGeral(std::vector<int> VetorXposicoes, int NumerodeExecuções)```: Essa função encapsula as três citadas anterioremente, no intuito de executar os 3 algorítmos diferentes em apenas "uma" chamada, facilitando os testes. Dentro dela as funções de Execução de cada MinMax são chamadas. 
 
 ## Resolução do Problema
 <p aligh='justify'>
-O primeiro passo para a resolução do problema é identificar o tamanho da matriz de maneira correta. Nas instruções do problema, sabe-se que a matriz sempre será quadrática, e seu tamanho corresponderá ao número na primeira linha do arquivo de texto input.mps. Feito isso, o programa alocará espaço para a matriz NxN. É importante dizer que, na implementação, a fim de evitar problemas futuros, a matriz criada tem tamanho N+2xN+2. Isso foi feito para que a matriz pudesse ser cercada com um caractér escolhido e, dessa forma, quando analisando cada posição P(ij) da matriz, não fosse acessada uma posição de memória não alocada anteriormente. Após criada a matriz, o programa abrirá novamente o arquivo de entrada input.txt e copiará a matriz pré-existente nela para a matriz criada pelo programa. Esse também será o último acesso ào arquivo de texto input.mps.
+Para a resolução do problema, primeiro foi necessário fazer os algorítmos de Mínimo e Máximo, que foram fornecidos pelo professor e traduzidos do Pascal para C++.
+
+ <p align="center"><img src="imgs/MinMax01.png"></p>
+ Algorítmo do MinMax01 em Pascal.
+ <p align="center"><img src="imgs/MinMax02.png"></p>
+ Algorítmo do MinMax02 em Pascal.
+ <p align="center"><img src="imgs/MinMax03.png"></p>
+ Algorítmo do MinMax03 em Pascal.
 </p>
 
 <p align='justify'> 
@@ -47,7 +56,6 @@ Feito isso, agora serão executadas sequências lógicas que seguem as regras es
 
 ## Resultados
 - Arquivo de Entrada ``` input.mps ```:
-<p align="center"><img src="imgs/Input1.png"></p>
 <p align="center"><img src="imgs/Input2.png"></p>
 
 - Resultados no ``` Geracoes.mps ```:
