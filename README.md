@@ -42,25 +42,27 @@ O objetivo deste trabalho é analisar os tempos de execução dos três diferent
 <p aligh='justify'>
 Para a resolução do problema, primeiro foi necessário fazer os algorítmos de Mínimo e Máximo, que foram fornecidos pelo professor e traduzidos do Pascal para C++.
 
- <p align="center"><img src="imgs/MinMax01.png"></p>
- Algorítmo do MinMax01 em Pascal.
- <p align="center"><img src="imgs/MinMax02.png"></p>
- Algorítmo do MinMax02 em Pascal.
- <p align="center"><img src="imgs/MinMax03.png"></p>
- Algorítmo do MinMax03 em Pascal.
+ <p align="center"><img src="Imgs/MinMax01.png"></p>
+ <p align="center"> Algorítmo do MinMax01 em Pascal. </p>
+ <p align="center"><img src="Imgs/MinMax02.png"></p>
+ <p align="center"> Algorítmo do MinMax02 em Pascal. </p>
+ <p align="center"><img src="Imgs/MinMax03.png"></p>
+ <p align="center"> Algorítmo do MinMax03 em Pascal. </p>
+ 
 </p>
 
 <p align='justify'> 
-Feito isso, agora serão executadas sequências lógicas que seguem as regras estipuladas pelo exercício. Essa lógica determinara como será o proximo estado da matriz, que será armazenada em uma matriz igual a anterior, denominada aux ( auxiliar ). Após isso, a matriz original será escrita no arquivo de texto Geracoes.mps, e a matriz original passará a ser a matriz auxiliar, e a original será destruída para evitar vazamento de memória. O programa executará esse mesmo processo X vezes, onde X representa o número de interações pedidas pelo usuário. Depois de todas as interações serem feitas, o programa então destruirá a matriz final e exibirá uma mensagem indicando o término de suas operações.
+Após traduzir os códigos para C++, as funções para manipulação dos vetores foram criadas. Segundo especificações do exercício, os vetores deveriam ser preenchidos com valores randômicos. Para isso a função Preencher_Vetor é criada. Ela usa a função rand() da biblioteca padrão de C para criar os valores e então preencher cada posição com um deles. A fim de evitar problemas já conhecidos dessa função, a linha de código 113, " srand(time(nullptr)); " serve para tentar tornar essa geração o mais randômica e espalhada possível. Com essa função pronta, todas as variações de vetores são preenchidas.
+</p>
+
+<p align='justify'> 
+ Um outro problema a ser resolvido é a execução dos vetores para os três algorítmos. Para a resolução desse problema as funções de execução foram criadas. Essas funções recebem o vetor e alteram ele dentro da própria função, mas ao sair dela o vetor é o mesmo. Com isso é possível "reciclar" o mesmo vetor para o uso dentro dos outros algorítmos de MinMax. Além disso, a fim de facilitar o cálculo da média, essas funções tambem recebem o número de execuções, fornecido pelo usuário, e indica quantas vezes o mesmo algorítmo será executado e fornecerá a média dessas execuções. Explicitando um pouco mais essa resolução, temos as funções de MinMax01, 02 e 03. É dentro delas que a função clock() da biblioteca time.h são usadas para calcular o tempo de execução dos programas, calculado na maioria dos casos em milisegundos.
 </p>
 
 ## Resultados
-- Arquivo de Entrada ``` input.mps ```:
-<p align="center"><img src="imgs/Input2.png"></p>
 
-- Resultados no ``` Geracoes.mps ```:
-<p align="center"><img src="imgs/Geracoes1.png"></p>
-<p align="center"><img src="imgs/Geracoes2.png"></p>
+<p align="center"><img src="Imgs/TabeladeResultados.png"></p>
+<p align="center"> Tabela de resultados dos algorítmos. </p>
 
 ## Conclusão
 <p align="justify">
