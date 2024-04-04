@@ -16,9 +16,13 @@ int main(){
     cout << "Digite o Número de execuções: ";
     cin >> NumerodeExecuções;
     
+    cout << "1000 Posições\n" << endl;
     ExecutarGeral(mil_posicoes, NumerodeExecuções);
+    cout << "\n\n10000 Posições\n" << endl;
     ExecutarGeral(dezmil_posicoes, NumerodeExecuções);
+    cout << "\n\n100000 Posições\n" << endl;
     ExecutarGeral(cemmil_posicoes, NumerodeExecuções);
+    cout << "\n\n500000 Posições\n" << endl;
     ExecutarGeral(quinhentasmil_posicoes, NumerodeExecuções);
     return 0;
 }

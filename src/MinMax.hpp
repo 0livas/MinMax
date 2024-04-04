@@ -4,9 +4,9 @@
 #include <vector>
 using namespace std;
 
-float MinMax_01(const std::vector<int>& meuVetor);
-float MinMax_02(const std::vector<int>& meuVetor);
-float MinMax_03(const std::vector<int>& meuVetor);
+double MinMax_01(const std::vector<int>& meuVetor);
+double MinMax_02(const std::vector<int>& meuVetor);
+double MinMax_03(const std::vector<int>& meuVetor);
 
 std::vector<int>Ordenacao(std::vector<int>& meuVetor, int Definicao);
 std::vector<int>Preencher_Vetor(std::vector<int>& meuVetor, int Tamanho);

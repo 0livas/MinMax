@@ -1,7 +1,8 @@
 #include "MinMax.hpp"
 #include <vector>
+#include <algorithm>
 
-float MinMax_01(const std::vector<int>& meuVetor){
+double MinMax_01(const std::vector<int>& meuVetor){
     clock_t inicio, fim;
     inicio = clock();
     int Max = 0, Min = 0;
@@ -18,12 +19,15 @@ float MinMax_01(const std::vector<int>& meuVetor){
         }
     }
     fim = clock();
-    return fim-inicio;
+
+    double tempo = 0;
+    tempo = double (fim-inicio)/CLOCKS_PER_SEC;
+    return tempo;
 };
 
 
 
-float MinMax_02(const std::vector<int>& meuVetor){
+double MinMax_02(const std::vector<int>& meuVetor){
     clock_t inicio, fim;
     inicio = clock();
     int Max = 0, Min = 0;
@@ -39,12 +43,15 @@ float MinMax_02(const std::vector<int>& meuVetor){
         }
     }
     fim = clock();
-    return fim-inicio;
+
+    double tempo = 0;
+    tempo = double (fim-inicio)/CLOCKS_PER_SEC;
+    return tempo;
 };
 
 
 
-float MinMax_03(std::vector<int>& meuVetor){
+double MinMax_03(std::vector<int>& meuVetor){
     clock_t inicio, fim;
     inicio = clock();
     int i = 0, Max = 0, Min = 0;
@@ -82,7 +89,9 @@ float MinMax_03(std::vector<int>& meuVetor){
         j = j+2;
     }
     fim = clock();
-    return fim-inicio;
+    double tempo = 0;
+    tempo = double (fim-inicio)/CLOCKS_PER_SEC;
+    return tempo;
 };
 
 
@@ -90,27 +99,11 @@ float MinMax_03(std::vector<int>& meuVetor){
 std::vector<int>Ordenacao(std::vector<int>& meuVetor, int Definicao){
 
     if(Definicao == 1){ //Ordena crescente.
-        for(size_t i = 0; i < meuVetor.size(); i++){
-            for(size_t j = 0; j<meuVetor.size(); j++){
-                if(meuVetor[i] < meuVetor[j]){
-                    int ordena = meuVetor[i];
-                    meuVetor[i] = meuVetor[j];
-                    meuVetor[j] = ordena;
-                }
-            }
-        }
+    sort(meuVetor.begin(), meuVetor.end());
     }
 
     if(Definicao == 0){ //ordena decrescente.
-        for(size_t i = 0; i < meuVetor.size(); i++){
-            for(size_t j = 0; j<meuVetor.size(); j++){
-                if(meuVetor[i] > meuVetor[j]){
-                    int ordena = meuVetor[i];
-                    meuVetor[i] = meuVetor[j];
-                    meuVetor[j] = ordena;
-                }
-            }
-        }
+    sort(meuVetor.begin(), meuVetor.end(), greater<int>());
     }
     
     return meuVetor;
@@ -154,7 +147,7 @@ void ExecutarMinMax01(std::vector<int> meuVetor, int NumerodeExecuções){
         fim++;
     }while(fim!=NumerodeExecuções);
     cout <<  "Média: " << MediaD/NumerodeExecuções  << endl;
-    cout << "---------------------" << endl;
+    cout << "----------------------" << endl;
     return;
 };
 
@@ -187,7 +180,7 @@ void ExecutarMinMax02(std::vector<int> meuVetor, int NumerodeExecuções){
         fim++;
     }while(fim!=NumerodeExecuções);
     cout <<  "Média: " << MediaD/NumerodeExecuções  << endl;
-    cout << "---------------------" << endl;
+    cout << "----------------------" << endl;
     return;
 };
 
@@ -220,7 +213,7 @@ void ExecutarMinMax03(std::vector<int> meuVetor, int NumerodeExecuções){
         fim++;
     }while(fim!=NumerodeExecuções);
     cout <<  "Média: " << MediaD/NumerodeExecuções  << endl;
-    cout << "---------------------" << endl;
+    cout << "----------------------" << endl;
     return;
 };
 
