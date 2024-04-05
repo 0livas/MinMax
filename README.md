@@ -88,14 +88,19 @@ Uma forma de remediar isso é aumentar o número de execuções. Na tabela aqui 
 
 ## Conclusão
 <p align="justify">
-O exercício induz a boas práticas de programação e auxilia o programador na lógica de funcionamento de uma matriz no ambiente da máquina. Além disso, embora a lógica no exercício pareça bem simplória, quando uma matriz muito grande é usada, diferentes problemas podem ser avaliados, tais como o tempo de execução muito longo, problemas na leitura do arquivo e, também, na estruturação do programa. Uma sequência muito longa de if's como foi feita no método ProximaGeração, por exemplo, é muito custosa para a máquina e torna o tempo de execução muito longo, além de fornecer margem para que o programador acabe cometendo erros em cascata, que no fim podem arruinar completamente a execução do programa.. Portanto, esse exercício é uma boa forma de treinar diferentes aspectos que envolvem a programação, induzindo à boas práticas e, também, a um pensamento mais estruturado sobre como o programa será feito.
+O estudo de diferentes algorítmos MinMax demonstra como a implementação inteligente de diferentes funções que desempenham o mesmo papel podem apresentar comportamentos diferentes quando analisadas. Isso fica explicito com à vista da tabela feita, que permite uma análise mais precisa dos resultados. O MinMax03, embora tido antes como sempre o melhor caso, pode desempenhar pior que os demais algorítmos quando as condições não fossem as mais apropriadas para o seu funcionamento. Isso também é verdade para o MinMax01, que embora tido como o pior caso, há situações em que ele performará melhor que os outros algorítmos.
+
+É notável que a análise assintótica também desempenha um importante papel no entendimento geral desse projeto, já que é esse conhecimento que prevê o comportamento dos algorítmos, que na maioria das vezes segue o que é explicito na tabela. Além isso, o programa nos permite um olhar mais profundo sobre os fatores externos que influenciam a execução do programa, e isso fica bem explicito na tabela de MinMax01, onde as execuções deveriam seguir uma certa linearidade, mas apresentam grandes diferenças.
+
+Por fim, esse projeto permitiu o aprofundamento prático dos temas discutidos em sala, principalmente sobre o tratamento de grandes massas de dados, uma análise que fica clara quando há vista dos resultados obtidos na execução do programa, além de permitir uma ideia mais clara sobre dados ainda maiores do que foram analisados, e o comportamento que eles poderiam apresentar.
+
 </p>
 
 ## Referências
 O arquivo makefile usado foi retirado de um dos projetos do professor Michel Pires, segue o link para o seu github:
 <p>
  
-DA SILVA, Michel Pires. Página Principal GitHub. <a> https://github.com/mpiress </a>. Acesso em 16 de Março de 2024.
+DA SILVA, Michel Pires. Página Principal GitHub. <a> https://github.com/mpiress </a>. Acesso em 04 de Abril de 2024.
 </p>
 
 ## Compilação e Execução
