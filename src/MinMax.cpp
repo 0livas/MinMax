@@ -69,7 +69,7 @@ double MinMax_03(std::vector<int>& meuVetor){
         Min = meuVetor[0];
     }
 
-    for(size_t j = 3; j < meuVetor.size();){
+    for(size_t j = 2; j < meuVetor.size();){
         if(meuVetor[j] > meuVetor[j+1]){
             if(meuVetor[j] > Max){
                 Max = meuVetor[j];
