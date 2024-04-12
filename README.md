@@ -17,7 +17,7 @@ Este programa faz referência a disciplina Algorítmo e Estrutura de Dados I, de
 ## Objetivos
 
 <p align='justify'>
-O objetivo deste trabalho é analisar os tempos de execução dos três diferentes algorítmos fornecidos para encontrar o Mínimo e Máximo dentro de um vetor. Com isso, os resultados serão relacionados aos conceitos de análise assintótica, com o intúito último de consolidar os conceitos discutidos dentro de sala, bem como aprofundar o conhecimento geral do conteúdo.
+O objetivo deste trabalho é analisar os tempos de execução dos três diferentes algorítmos fornecidos para encontrar o Mínimo e Máximo dentro de um vetor. Com isso, os resultados serão relacionados aos conceitos de análise assintótica, com o intúito último de consolidar os conceitos discutidos dentro de sala, bem como aprofundar o conhecimento geral do conteúdo. Para tanto, diferentes implementações serão feitas e, além disso, outras ferramentas como o gnuplot serão utilizados.
 </p>
 
 ## Arquivos
@@ -26,6 +26,17 @@ O objetivo deste trabalho é analisar os tempos de execução dos três diferent
 - ``` main.cpp ```: Arquivo principal;
 - ``` MinMax.hpp ```: Assinatura das funções relacionadas à manipulação dos vetores;
 - ``` MinMax.cpp ```: Implementação das funções relacionadas à manipulação dos vetores.
+
+## datasets
+- ``` Dados.txt ```: Esse arquivo de texto guarda informações referentes ao tamanho do vetores e os dados para cada MinMax (algorítmos) utilizados. É por meio deste arquivo de texto que o gráfico mais complexo é plotado.;
+- ``` Dados1.txt ```: Esse arquivo de texto guarda informações referentes ao tamanho dos vetores e os dados do MinMax01 utilizados. É por meio deste arquivo de texto que o gráfico deste algorítmo é plotado;
+- ``` Dados2.txt ```: Esse arquivo de texto guarda informações referentes ao tamanho dos vetores e os dados do MinMax02 utilizados. É por meio deste arquivo de texto que o gráfico deste algorítmo é plotado;
+- ``` Dados3.txt ```: Esse arquivo de texto guarda informações referentes ao tamanho dos vetores e os dados do MinMax03 utilizados. É por meio deste arquivo de texto que o gráfico deste algorítmo é plotado;
+- ``` Execução.gp ```: Esse arquivo '.gp' é o responsável por utilizar o arquivo de texto 'Dados.txt' para plotar o gráfico mais complexo.;
+- ``` ExecuçãoMinMax01.gp ```: Esse arquivo '.gp' é o responsável por utilizar o arquivo de texto 'Dados1.txt' para plotar o gráfico relacionado ao algorítmo de Mínimo e Máximo 01 via terminal.;
+- ``` ExecuçãoMinMax02.gp ```: Esse arquivo '.gp' é o responsável por utilizar o arquivo de texto 'Dados2.txt' para plotar o gráfico relacionado ao algorítmo de Mínimo e Máximo 02 via terminal.;
+- ``` ExecuçãoMinMax03.gp ```: Esse arquivo '.gp' é o responsável por utilizar o arquivo de texto 'Dados3.txt' para plotar o gráfico relacionado ao algorítmo de Mínimo e Máximo 03 via terminal.;
+
 
 ## Funções
 - ```MinMax01(const std::vector<int>& meuVetor)```: Essa função implementa o algorítmo para o MinMax 1, executa o algorítmo e calcula o tempo de execução, que é retornado pela função.
@@ -78,11 +89,18 @@ Antes de falar sobre os resultados propriamente, seguem-se duas tabelas que irã
 
 Falando sobre a primeira imagem, basta trocar o valor de n por um número inteiro que é possível ver que, matemáticamente, os algorítmos seguem o melhor caso, caso médio e pior caso. Isso, claro, representa a teoria, feita segundo análise assintática e portanto tem uma base de veracidade. Saindo dessa teoria, tem-se os resultados da tabela, que são resultados de uma média de 10 execuções para cada vetor, nas três ordens explicitadas, para cada algorítmo.
 
-Como esperado, o tempo de execução aumenta com o aumento do tamanho do vetor, e a diferença de tempo de execução entre os variados tamanhos é notável. Além disso, é possível notar que, embora o MinMax 01 deveria ser o pior, existem alguns casos em que ele desempenha melhor que os demais algorítmos, isso também acontece com o MinMax02. À título de exemplo, a execução aleatória do vetor de tamanho 1000 para o MinMax01 é o melhor resultado, e a execução aleatória do vetor de 100000 posições para o MinMax02 é o melhor resultado. No entanto, como já é esperado, o MinMax03 perfoma melhor na maioria dos casos crescentes e decrescentes.
+Como esperado, o tempo de execução aumenta com o aumento do tamanho do vetor, e a diferença de tempo de execução entre os variados tamanhos é notável. Além disso, é possível notar que, embora o MinMax 01 deveria ser o pior, existem alguns casos em que ele desempenha melhor que um dos algorítmos, isso também acontece com o MinMax02. À título de exemplo, a execução aleatória do vetor de tamanho 1000 para o MinMax02 é o melhor resultado. No entanto, como já é esperado, o MinMax03 perfoma melhor na maioria dos casos crescentes e decrescentes, como mostrado na tabela. Algo que também é necessário ser dito é que o MinMax03 pode performar pior que os demais, como é o caso do volume de dados aleatórios para o maior dos vetores, o de 500000 posições, em que fica evidente um resultado inferior aos demais algorítmos.
 
-Por fim, é necessário discutir porque isso acontece. Como explicado na construção de cada código, a implementação entre cada MinMax diferem uma das outras. O MinMax 01 percorrerá e executará todos os ifs, o que normalmente aumentará o tempo de execucação e os custos do geral. É também por isso que os tempos crescentes e decrescentes possuem valores próximos. Além disso existem processos dentro da própria máquina que podem e influenciar esses resultados, e isso foge ao controle dos testes aqui explicitados.
+Por fim, é necessário discutir porque isso acontece. Como explicado na construção de cada código, as implementações entre cada MinMax diferem uma das outras. O MinMax 01 percorrerá e executará todos os ifs, o que normalmente aumentará o tempo de execucação e os custos do geral. É também por isso que os tempos crescentes e decrescentes possuem valores próximos. O MinMax 02 também percorrerá todo o vetor, posição por posição, mas ja apresenta uma maneira mais eficaz de código, onde o duplo if é trocado por um if else, que permite uma execução mais rápida e eficaz. Por último, têm-se o MinMax 03, que percorre o vetor de duas em duas posições, essencialmente analisando o vetor duas vezes mais rápido. ALém disso, ele também implementa uma sequência if else muito inteligente que permite, de forma semelhante ao algorítmo de MinMax 02, uma execução mais rápida e eficaz. Enfim, é necessário dizer que existem processos dentro da própria máquina que podem e influenciar esses resultados, e isso foge ao controle dos testes aqui explicitados. Tais processos podem variar em grau e complexidade e podem, também, ter uma prioridade de execução, essencialmente influenciando os testes realizados.
 
-Uma forma de remediar isso é aumentar o número de execuções. Na tabela aqui exposta a média de execuções foi 10, em um teste ideal esse número seria bem superior, mas o tempo de execução do programa também aumentaria, embora os valores ficariam bem mais fidedignos à realidade.
+Uma forma de remediar isso é aumentar o número de execuções. Na tabela aqui exposta a média de execuções foi 10, em um teste ideal esse número seria bem superior, mas o tempo de execução do programa também aumentaria, embora os valores ficariam bem mais fidedignos à realidade. Note que por tempo de execução quer-se dizer que o computador levará mais tempo para executar o programa e realizar todas as operações explicitadas no código, porém este processo permitirá que as médias estejam o mais próximas de uma realidade ideal.
+
+<p align="center"><img src="Imgs/MinMax01.png"></p>
+<p align="center"> Tabela de resultados dos algorítmos. </p>
+<p align="center"><img src="Imgs/MinMax02.png"></p>
+<p align="center"> Tabela de resultados dos algorítmos. </p>
+<p align="center"><img src="Imgs/MinMax03.png"></p>
+<p align="center"> Tabela de resultados dos algorítmos. </p>
 
 </p>
 
