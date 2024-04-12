@@ -66,18 +66,41 @@ Após traduzir os códigos para C++, as funções para manipulação dos vetores
 
 ## Resultados
 
+<p aligh='justify'>
+
+Antes de falar sobre os resultados propriamente, seguem-se duas tabelas que irão guiar a discurssão desses resultados.
+
+<p align="center"><img src="Imgs/TabeladeCasos.png"></p>
+<p align="center"> Tabela de com os valores matemáticos dos algorítmos. </p>
+
 <p align="center"><img src="Imgs/TabeladeResultados.png"></p>
 <p align="center"> Tabela de resultados dos algorítmos. </p>
 
+Falando sobre a primeira imagem, basta trocar o valor de n por um número inteiro que é possível ver que, matemáticamente, os algorítmos seguem o melhor caso, caso médio e pior caso. Isso, claro, representa a teoria, feita segundo análise assintática e portanto tem uma base de veracidade. Saindo dessa teoria, tem-se os resultados da tabela, que são resultados de uma média de 10 execuções para cada vetor, nas três ordens explicitadas, para cada algorítmo.
+
+Como esperado, o tempo de execução aumenta com o aumento do tamanho do vetor, e a diferença de tempo de execução entre os variados tamanhos é notável. Além disso, é possível notar que, embora o MinMax 01 deveria ser o pior, existem alguns casos em que ele desempenha melhor que os demais algorítmos, isso também acontece com o MinMax02. À título de exemplo, a execução aleatória do vetor de tamanho 1000 para o MinMax01 é o melhor resultado, e a execução aleatória do vetor de 100000 posições para o MinMax02 é o melhor resultado. No entanto, como já é esperado, o MinMax03 perfoma melhor na maioria dos casos crescentes e decrescentes.
+
+Por fim, é necessário discutir porque isso acontece. Como explicado na construção de cada código, a implementação entre cada MinMax diferem uma das outras. O MinMax 01 percorrerá e executará todos os ifs, o que normalmente aumentará o tempo de execucação e os custos do geral. É também por isso que os tempos crescentes e decrescentes possuem valores próximos. Além disso existem processos dentro da própria máquina que podem e influenciar esses resultados, e isso foge ao controle dos testes aqui explicitados.
+
+Uma forma de remediar isso é aumentar o número de execuções. Na tabela aqui exposta a média de execuções foi 10, em um teste ideal esse número seria bem superior, mas o tempo de execução do programa também aumentaria, embora os valores ficariam bem mais fidedignos à realidade.
+
+</p>
+
 ## Conclusão
 <p align="justify">
-O exercício induz a boas práticas de programação e auxilia o programador na lógica de funcionamento de uma matriz no ambiente da máquina. Além disso, embora a lógica no exercício pareça bem simplória, quando uma matriz muito grande é usada, diferentes problemas podem ser avaliados, tais como o tempo de execução muito longo, problemas na leitura do arquivo e, também, na estruturação do programa. Uma sequência muito longa de if's como foi feita no método ProximaGeração, por exemplo, é muito custosa para a máquina e torna o tempo de execução muito longo, além de fornecer margem para que o programador acabe cometendo erros em cascata, que no fim podem arruinar completamente a execução do programa.. Portanto, esse exercício é uma boa forma de treinar diferentes aspectos que envolvem a programação, induzindo à boas práticas e, também, a um pensamento mais estruturado sobre como o programa será feito.
+O estudo de diferentes algorítmos MinMax demonstra como a implementação inteligente de diferentes funções que desempenham o mesmo papel podem apresentar comportamentos diferentes quando analisadas. Isso fica explicito com à vista da tabela feita, que permite uma análise mais precisa dos resultados. O MinMax03, embora tido antes como sempre o melhor caso, pode desempenhar pior que os demais algorítmos quando as condições não fossem as mais apropriadas para o seu funcionamento. Isso também é verdade para o MinMax01, que embora tido como o pior caso, há situações em que ele performará melhor que os outros algorítmos.
+
+É notável que a análise assintótica também desempenha um importante papel no entendimento geral desse projeto, já que é esse conhecimento que prevê o comportamento dos algorítmos, que na maioria das vezes segue o que é explicito na tabela. Além isso, o programa nos permite um olhar mais profundo sobre os fatores externos que influenciam a execução do programa, e isso fica bem explicito na tabela de MinMax01, onde as execuções deveriam seguir uma certa linearidade, mas apresentam grandes diferenças.
+
+Por fim, esse projeto permitiu o aprofundamento prático dos temas discutidos em sala, principalmente sobre o tratamento de grandes massas de dados, uma análise que fica clara quando há vista dos resultados obtidos na execução do programa, além de permitir uma ideia mais clara sobre dados ainda maiores do que foram analisados, e o comportamento que eles poderiam apresentar.
+
 </p>
 
 ## Referências
 O arquivo makefile usado foi retirado de um dos projetos do professor Michel Pires, segue o link para o seu github:
 <p>
-DA SILVA, Michel Pires. Página Principal GitHub. <a> https://github.com/mpiress </a>. Acesso em 16 de Março de 2024.
+ 
+DA SILVA, Michel Pires. Página Principal GitHub. <a> https://github.com/mpiress </a>. Acesso em 04 de Abril de 2024.
 </p>
 
 ## Compilação e Execução
