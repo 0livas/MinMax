@@ -95,12 +95,29 @@ Por fim, é necessário discutir porque isso acontece. Como explicado na constru
 
 Uma forma de remediar isso é aumentar o número de execuções. Na tabela aqui exposta a média de execuções foi 10, em um teste ideal esse número seria bem superior, mas o tempo de execução do programa também aumentaria, embora os valores ficariam bem mais fidedignos à realidade. Note que por tempo de execução quer-se dizer que o computador levará mais tempo para executar o programa e realizar todas as operações explicitadas no código, porém este processo permitirá que as médias estejam o mais próximas de uma realidade ideal.
 
-<p align="center"><img src="Imgs/MinMax01.png"></p>
-<p align="center"> Tabela de resultados dos algorítmos. </p>
-<p align="center"><img src="Imgs/MinMax02.png"></p>
-<p align="center"> Tabela de resultados dos algorítmos. </p>
-<p align="center"><img src="Imgs/MinMax03.png"></p>
-<p align="center"> Tabela de resultados dos algorítmos. </p>
+## Gráficos
+
+Abaixo temos os gráficos indivíduais para cada algorítmo utilizado neste repositório. Os gráficos foram feitos por meio do GnuPlot, um programa que é bem conhecido e existe há mais de uma década. Essa ferramenta permite fazer a plotagem de gráficos em duas ou três dimensões, e seu uso aqui foi exatamente este. Ele pode ser instalado facilmente na maioria das máquinas e é gratuito.
+
+<p align="center"><img src="Imgs/minmax1.png"></p>
+<p align="center"> Gráfico de resultados do Algorítmo de Mínimo e Máximo 01. </p>
+
+Por meio da análise individual deste gráfico, fica bem evidente que o algorítmo mais básico de Mínimo e Máximo utilizado aqui performa pior em casos aleatórios, enquanto tende a seguir um padrão comum entre dados ordenados de modo crescente ou decrescente.
+
+<p align="center"><img src="Imgs/minmax2.png"></p>
+<p align="center"> Gráfico de resultados do Algorítmo de Mínimo e Máximo 02. </p>
+
+Este gráfico, que faz referência ao algorítmo de Mínimo e Máximo 02, deixa evidente uma caractéristica um pouco mais implícita nesse código. A sequência de if else utilizada para este algorítmo avalia, primeiro, o maior número. Em um vetor ordenado de maneira crescente, esse if será sempre utilizado, enquanto sua sequência else nunca é analisada, já que não há pouca ou quase nenhuma chance de que isso aconteça. Em um vetor com repetições, no entanto, o programa poderá entrar no comando else, no entanto nada será executado.
+
+<p align="center"><img src="Imgs/minmax3.png"></p>
+<p align="center"> Gráfico de resultados do Algorítmo de Mínimo e Máximo 03. </p>
+
+Este gráfico faz referência ao algorítmo de Mínimo e Máximo 03. Assim como foi possível notar uma caractérista específica nos gráficos anteriores, este também traz a luz o problema deste algorítmo: Aleatoriaedade dos dados. Embora o programa ainda execute em um tempo bem pequeno ( estamos falando aqui de coisas multiplicadas por 10⁻⁵ ), em massas de dados bem maiores que 500000, que facilmente acontece em problemas reais, esse valor cresce exponencialmente, de forma que, em algum momento, caso não se saiba a forma como os dados entrarão para análise, esse algorítmo pode acabar por ser ineficiente.
+
+<p align="center"><img src="Imgs/minmaxGeral.png"></p>
+<p align="center"> Gráfico de resultados Gerais para todos os Algorítmos. </p>
+
+Por fim, este gráfico é uma síntese dos outros citados e discutidos anteriormente. Com essa síntese torna-se mais fácil analisar os algorítmos análisados e demonstra, enfim, a conclusão deste projeto. Vale notar que o MinMax03, ao mesmo tempo em que foi o melhor quando ordenado, foi também o pior quando exposta à massa de dados aleatória.
 
 </p>
 
@@ -130,9 +147,10 @@ DA SILVA, Michel Pires. Página Principal GitHub. <a> https://github.com/mpiress
   * 16GB de RAM.
 * | Comando                |  Função                                                                                           |                     
   | -----------------------| ------------------------------------------------------------------------------------------------- |
-  |  `make clean`          | Apaga a última compilação realizada contida na pasta build                                        |
-  |  `make`                | Executa a compilação do programa utilizando o g++, e o resultado vai para a pasta build           |
-  |  `make run`            | Executa o programa da pasta build após a realização da compilação                                 |
+  |  `make clean`          | Apaga a última compilação realizada contida na pasta build.                                       |
+  |  `make`                | Executa a compilação do programa utilizando o g++, e o resultado vai para a pasta build.          |
+  |  `make run`            | Executa o programa da pasta build após a realização da compilação.                                |
+  |  `gnuplot 'nome'`      | Executa o arquivo '.gp' e gera o gráfico via gnuplot.                                             |
 
   ## Contato
 <p align='justify'> Jader Oliveira Silva </p>
